@@ -4,80 +4,80 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* MediFinder Pro - Clean Healthcare Theme */
-  /* Primary: Deep Teal Blue - Trust & Professionalism */
-  --background: oklch(0.98 0.005 220);
-  --foreground: oklch(0.17 0.02 250);
+  /* MediFinder Pro - Vibrant Healthcare Theme */
+  /* Primary: Rich Teal - Trust & Energy */
+  --background: oklch(0.97 0.008 200);
+  --foreground: oklch(0.15 0.03 230);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.17 0.02 250);
+  --card-foreground: oklch(0.15 0.03 230);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.17 0.02 250);
-  --primary: oklch(0.45 0.12 240);
+  --popover-foreground: oklch(0.15 0.03 230);
+  --primary: oklch(0.50 0.16 220);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.55 0.14 170);
+  --secondary: oklch(0.60 0.18 165);
   --secondary-foreground: oklch(0.99 0 0);
-  --muted: oklch(0.95 0.008 240);
-  --muted-foreground: oklch(0.50 0.02 250);
-  --accent: oklch(0.92 0.02 240);
-  --accent-foreground: oklch(0.20 0.04 250);
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.55 0.22 25);
-  --border: oklch(0.91 0.01 240);
-  --input: oklch(0.91 0.01 240);
-  --ring: oklch(0.45 0.12 240);
-  --warning: oklch(0.80 0.16 80);
-  --success: oklch(0.55 0.14 170);
-  --chart-1: oklch(0.45 0.12 240);
-  --chart-2: oklch(0.55 0.14 170);
-  --chart-3: oklch(0.80 0.16 80);
-  --chart-4: oklch(0.55 0.22 25);
-  --chart-5: oklch(0.60 0.10 280);
+  --muted: oklch(0.94 0.012 210);
+  --muted-foreground: oklch(0.48 0.03 230);
+  --accent: oklch(0.90 0.04 210);
+  --accent-foreground: oklch(0.18 0.04 230);
+  --destructive: oklch(0.58 0.24 25);
+  --destructive-foreground: oklch(0.58 0.24 25);
+  --border: oklch(0.89 0.02 210);
+  --input: oklch(0.89 0.02 210);
+  --ring: oklch(0.50 0.16 220);
+  --warning: oklch(0.82 0.18 75);
+  --success: oklch(0.60 0.18 165);
+  --chart-1: oklch(0.50 0.16 220);
+  --chart-2: oklch(0.60 0.18 165);
+  --chart-3: oklch(0.82 0.18 75);
+  --chart-4: oklch(0.58 0.24 25);
+  --chart-5: oklch(0.62 0.14 280);
   --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.17 0.02 250);
-  --sidebar-primary: oklch(0.45 0.12 240);
+  --sidebar-foreground: oklch(0.15 0.03 230);
+  --sidebar-primary: oklch(0.50 0.16 220);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.95 0.008 240);
-  --sidebar-accent-foreground: oklch(0.20 0.04 250);
-  --sidebar-border: oklch(0.91 0.01 240);
-  --sidebar-ring: oklch(0.45 0.12 240);
+  --sidebar-accent: oklch(0.94 0.012 210);
+  --sidebar-accent-foreground: oklch(0.18 0.04 230);
+  --sidebar-border: oklch(0.89 0.02 210);
+  --sidebar-ring: oklch(0.50 0.16 220);
 }
 
 .dark {
-  --background: oklch(0.14 0.01 250);
-  --foreground: oklch(0.96 0.005 220);
-  --card: oklch(0.18 0.015 250);
-  --card-foreground: oklch(0.96 0.005 220);
-  --popover: oklch(0.18 0.015 250);
-  --popover-foreground: oklch(0.96 0.005 220);
-  --primary: oklch(0.60 0.14 240);
-  --primary-foreground: oklch(0.14 0.01 250);
-  --secondary: oklch(0.60 0.14 170);
-  --secondary-foreground: oklch(0.14 0.01 250);
-  --muted: oklch(0.25 0.015 250);
-  --muted-foreground: oklch(0.65 0.02 250);
-  --accent: oklch(0.25 0.015 250);
-  --accent-foreground: oklch(0.96 0.005 220);
-  --destructive: oklch(0.45 0.18 25);
-  --destructive-foreground: oklch(0.60 0.22 25);
-  --border: oklch(0.28 0.015 250);
-  --input: oklch(0.28 0.015 250);
-  --ring: oklch(0.60 0.14 240);
-  --warning: oklch(0.80 0.16 80);
-  --success: oklch(0.60 0.14 170);
-  --chart-1: oklch(0.60 0.14 240);
-  --chart-2: oklch(0.60 0.14 170);
-  --chart-3: oklch(0.80 0.16 80);
-  --chart-4: oklch(0.55 0.22 25);
-  --chart-5: oklch(0.65 0.12 280);
-  --sidebar: oklch(0.18 0.015 250);
-  --sidebar-foreground: oklch(0.96 0.005 220);
-  --sidebar-primary: oklch(0.60 0.14 240);
-  --sidebar-primary-foreground: oklch(0.14 0.01 250);
-  --sidebar-accent: oklch(0.25 0.015 250);
-  --sidebar-accent-foreground: oklch(0.96 0.005 220);
-  --sidebar-border: oklch(0.28 0.015 250);
-  --sidebar-ring: oklch(0.60 0.14 240);
+  --background: oklch(0.13 0.015 220);
+  --foreground: oklch(0.95 0.008 200);
+  --card: oklch(0.17 0.02 220);
+  --card-foreground: oklch(0.95 0.008 200);
+  --popover: oklch(0.17 0.02 220);
+  --popover-foreground: oklch(0.95 0.008 200);
+  --primary: oklch(0.62 0.16 220);
+  --primary-foreground: oklch(0.13 0.015 220);
+  --secondary: oklch(0.62 0.18 165);
+  --secondary-foreground: oklch(0.13 0.015 220);
+  --muted: oklch(0.23 0.02 220);
+  --muted-foreground: oklch(0.62 0.025 220);
+  --accent: oklch(0.23 0.02 220);
+  --accent-foreground: oklch(0.95 0.008 200);
+  --destructive: oklch(0.50 0.20 25);
+  --destructive-foreground: oklch(0.62 0.24 25);
+  --border: oklch(0.26 0.02 220);
+  --input: oklch(0.26 0.02 220);
+  --ring: oklch(0.62 0.16 220);
+  --warning: oklch(0.82 0.18 75);
+  --success: oklch(0.62 0.18 165);
+  --chart-1: oklch(0.62 0.16 220);
+  --chart-2: oklch(0.62 0.18 165);
+  --chart-3: oklch(0.82 0.18 75);
+  --chart-4: oklch(0.58 0.24 25);
+  --chart-5: oklch(0.65 0.14 280);
+  --sidebar: oklch(0.17 0.02 220);
+  --sidebar-foreground: oklch(0.95 0.008 200);
+  --sidebar-primary: oklch(0.62 0.16 220);
+  --sidebar-primary-foreground: oklch(0.13 0.015 220);
+  --sidebar-accent: oklch(0.23 0.02 220);
+  --sidebar-accent-foreground: oklch(0.95 0.008 200);
+  --sidebar-border: oklch(0.26 0.02 220);
+  --sidebar-ring: oklch(0.62 0.16 220);
 }
 
 @theme inline {
@@ -132,60 +132,90 @@
   }
 }
 
-/* Custom animations for MediFinder */
+/* ========================================
+   PUNCHY ANIMATIONS for MediFinder
+   ======================================== */
+
+/* Bouncy spring-style entrance from below */
 @keyframes fade-in-up {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(40px) scale(0.96);
   }
-  to {
+  60% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-6px) scale(1.01);
+  }
+  80% {
+    transform: translateY(2px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
+/* Snap down entrance for header elements */
 @keyframes fade-in-down {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(-16px);
+    transform: translateY(-30px) scale(0.95);
   }
-  to {
+  70% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
+/* Pop-in scale effect */
 @keyframes scale-in {
-  from {
+  0% {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.85);
   }
-  to {
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
     opacity: 1;
     transform: scale(1);
   }
 }
 
+/* Slide from right with bounce */
 @keyframes slide-in-right {
-  from {
+  0% {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(40px);
   }
-  to {
+  65% {
+    opacity: 1;
+    transform: translateX(-5px);
+  }
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
+/* Subtle breathing glow */
 @keyframes pulse-gentle {
   0%, 100% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.85;
+    transform: scale(1.015);
   }
 }
 
+/* Shimmer loading */
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -195,29 +225,76 @@
   }
 }
 
+/* Floating effect for decorative elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Rotate pulse for icons */
+@keyframes icon-pop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-in-up 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 .animate-fade-in-down {
-  animation: fade-in-down 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-in-down 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 .animate-scale-in {
-  animation: scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: scale-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 .animate-slide-in-right {
-  animation: slide-in-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: slide-in-right 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 .animate-pulse-gentle {
-  animation: pulse-gentle 2s ease-in-out infinite;
+  animation: pulse-gentle 3s ease-in-out infinite;
 }
 
-.stagger-1 { animation-delay: 0.05s; }
-.stagger-2 { animation-delay: 0.1s; }
-.stagger-3 { animation-delay: 0.15s; }
-.stagger-4 { animation-delay: 0.2s; }
-.stagger-5 { animation-delay: 0.25s; }
-.stagger-6 { animation-delay: 0.3s; }
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-icon-pop {
+  animation: icon-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.stagger-1 { animation-delay: 0.06s; }
+.stagger-2 { animation-delay: 0.12s; }
+.stagger-3 { animation-delay: 0.18s; }
+.stagger-4 { animation-delay: 0.24s; }
+.stagger-5 { animation-delay: 0.30s; }
+.stagger-6 { animation-delay: 0.36s; }
+
+/* Hover lift for interactive cards */
+.hover-lift {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px -12px oklch(0.50 0.16 220 / 0.20);
+}

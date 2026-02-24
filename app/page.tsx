@@ -9,7 +9,13 @@ import { AddHospitalModal } from "@/components/medifinder/add-hospital-modal"
 import { EmptyState } from "@/components/medifinder/empty-state"
 import type { Hospital, Review } from "@/lib/medifinder-types"
 import { DEFAULT_HOSPITALS } from "@/lib/medifinder-types"
-import { Hospital as HospitalIcon, Heart } from "lucide-react"
+import {
+  Hospital as HospitalIcon,
+  Heart,
+  Stethoscope,
+  BedDouble,
+  MapPin,
+} from "lucide-react"
 
 export default function MediFinderPage() {
   const [hospitals, setHospitals] = useState<Hospital[]>(DEFAULT_HOSPITALS)
@@ -34,6 +40,20 @@ export default function MediFinderPage() {
       )
     })
   }, [hospitals, searchQuery])
+
+  // Compute stats
+  const totalBeds = useMemo(
+    () => hospitals.reduce((sum, h) => sum + h.beds, 0),
+    [hospitals]
+  )
+  const totalDoctors = useMemo(
+    () => hospitals.reduce((sum, h) => sum + h.doctors.length, 0),
+    [hospitals]
+  )
+  const uniqueCities = useMemo(
+    () => new Set(hospitals.map((h) => h.city)).size,
+    [hospitals]
+  )
 
   // Get average rating for a hospital
   const getAverageRating = useCallback(
@@ -78,25 +98,48 @@ export default function MediFinderPage() {
       {/* Search */}
       <SearchBar value={searchQuery} onChange={setSearchQuery} />
 
+      {/* Stats Bar */}
+      <div className="animate-fade-in-up stagger-5 mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-6 px-5">
+        {[
+          { icon: HospitalIcon, label: "Hospitals", value: hospitals.length, color: "text-primary" },
+          { icon: Stethoscope, label: "Specialists", value: totalDoctors, color: "text-secondary" },
+          { icon: BedDouble, label: "Beds", value: totalBeds, color: "text-warning" },
+          { icon: MapPin, label: "Areas", value: uniqueCities, color: "text-destructive" },
+        ].map((stat) => (
+          <div
+            key={stat.label}
+            className="flex items-center gap-3 rounded-xl bg-card px-5 py-3 shadow-sm transition-all duration-300 hover:shadow-md"
+          >
+            <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-accent ${stat.color}`}>
+              <stat.icon className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-xl font-extrabold tracking-tight text-foreground">{stat.value}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{stat.label}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Main Content */}
       <main className="mx-auto max-w-6xl px-5 pb-20 pt-10">
-        {/* Results count */}
-        {searchQuery && filteredHospitals.length > 0 && (
-          <p className="animate-fade-in-down mb-6 text-sm text-muted-foreground">
-            Showing{" "}
-            <span className="font-semibold text-foreground">
-              {filteredHospitals.length}
-            </span>{" "}
-            {filteredHospitals.length === 1 ? "hospital" : "hospitals"} for{" "}
-            <span className="font-medium text-primary">
-              {`"${searchQuery}"`}
+        {/* Section header */}
+        <div className="mb-8 flex items-center gap-3">
+          <div className="h-1 w-8 rounded-full bg-primary" />
+          <h2 className="text-sm font-bold uppercase tracking-widest text-primary">
+            {searchQuery ? "Search Results" : "Hospital Directory"}
+          </h2>
+          <div className="h-px flex-1 bg-border" />
+          {searchQuery && filteredHospitals.length > 0 && (
+            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+              {filteredHospitals.length} Found
             </span>
-          </p>
-        )}
+          )}
+        </div>
 
         {/* Hospital Grid */}
         {filteredHospitals.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {filteredHospitals.map((hospital, index) => (
               <HospitalCard
                 key={hospital.id}
@@ -114,16 +157,18 @@ export default function MediFinderPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <HospitalIcon className="h-4 w-4 text-primary" />
-            <span className="font-semibold text-foreground">
-              MediFinder Pro
+      <footer className="border-t border-border bg-card py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5 text-center">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <HospitalIcon className="h-4 w-4" />
+            </div>
+            <span className="text-base font-extrabold uppercase tracking-tight text-foreground">
+              MediFinder
             </span>
           </div>
-          <p className="flex items-center gap-1 text-xs text-muted-foreground">
-            Built with <Heart className="h-3 w-3 text-destructive" /> for better healthcare access
+          <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
+            Built with <Heart className="h-3.5 w-3.5 fill-destructive text-destructive" /> for better healthcare access in Warangal & Narsampet
           </p>
         </div>
       </footer>

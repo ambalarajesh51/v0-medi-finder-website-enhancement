@@ -29,6 +29,7 @@ export function AddHospitalModal({
   const [city, setCity] = useState("")
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
+  const [mapsUrl, setMapsUrl] = useState("")
   const [image, setImage] = useState("")
   const [beds, setBeds] = useState("")
   const [docs, setDocs] = useState("")
@@ -50,6 +51,7 @@ export function AddHospitalModal({
       image,
       phone,
       address,
+      mapsUrl: mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + " " + address)}`,
       beds: Number(beds) || 0,
       doctors:
         doctors.length > 0 && doctors[0].name
@@ -62,6 +64,7 @@ export function AddHospitalModal({
     setCity("")
     setPhone("")
     setAddress("")
+    setMapsUrl("")
     setImage("")
     setBeds("")
     setDocs("")
@@ -130,6 +133,19 @@ export function AddHospitalModal({
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               placeholder="e.g. MG Road, Bengaluru"
+              className="border-input bg-background text-foreground"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="hospital-maps" className="text-sm font-medium text-foreground">
+              Google Maps Link
+            </Label>
+            <Input
+              id="hospital-maps"
+              value={mapsUrl}
+              onChange={(e) => setMapsUrl(e.target.value)}
+              placeholder="https://www.google.com/maps/place/..."
               className="border-input bg-background text-foreground"
             />
           </div>

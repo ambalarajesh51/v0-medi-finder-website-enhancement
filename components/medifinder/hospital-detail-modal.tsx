@@ -40,7 +40,7 @@ export function HospitalDetailModal({
 
   if (!hospital) return null
 
-  const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(hospital.name + " " + hospital.address)}`
+  const navUrl = hospital.mapsUrl || `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(hospital.name + " " + hospital.address)}`
 
   function handleSubmitReview() {
     if (!reviewText.trim() || !hospital) return
@@ -72,17 +72,22 @@ export function HospitalDetailModal({
 
         <div className="space-y-5 px-6 pb-6">
           {/* Address & Beds */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="h-4 w-4 shrink-0 text-primary" />
-              <span>{hospital.address}</span>
-            </div>
+          <div className="flex flex-col gap-2.5 rounded-xl bg-accent/50 p-4">
+            <a
+              href={navUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/addr flex items-start gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <span className="underline decoration-primary/30 underline-offset-2 transition-all group-hover/addr:decoration-primary">{hospital.address}</span>
+            </a>
             <div className="flex items-center gap-2 text-sm">
-              <BedDouble className="h-4 w-4 shrink-0 text-primary" />
-              <span className="text-muted-foreground">
+              <BedDouble className="h-4 w-4 shrink-0 text-secondary" />
+              <span className="font-medium text-muted-foreground">
                 {"Beds Available: "}
               </span>
-              <span className="font-semibold text-destructive">
+              <span className="rounded-md bg-destructive/10 px-2 py-0.5 text-xs font-bold text-destructive">
                 {hospital.beds}
               </span>
             </div>
@@ -90,22 +95,23 @@ export function HospitalDetailModal({
 
           {/* Specialists */}
           <div>
-            <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-foreground">
-              <Stethoscope className="h-4 w-4 text-primary" />
+            <h4 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground">
+              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                <Stethoscope className="h-3.5 w-3.5" />
+              </div>
               Specialists
             </h4>
             <div className="space-y-2">
               {hospital.doctors.map((d, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 rounded-lg bg-muted/60 px-4 py-2.5 text-sm"
+                  className="flex items-center gap-3 rounded-xl border border-border bg-accent/40 px-4 py-3 text-sm transition-colors hover:bg-accent"
                 >
-                  <div className="h-2 w-2 shrink-0 rounded-full bg-secondary" />
-                  <span className="font-medium text-foreground">
+                  <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-secondary shadow-sm" />
+                  <span className="font-semibold text-foreground">
                     {d.name}
                   </span>
-                  <span className="text-muted-foreground">-</span>
-                  <span className="text-muted-foreground">{d.spec}</span>
+                  <span className="rounded-md bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">{d.spec}</span>
                 </div>
               ))}
             </div>
