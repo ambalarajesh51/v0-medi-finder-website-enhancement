@@ -8,13 +8,13 @@ import {
   Star,
   BedDouble,
   Stethoscope,
-  X,
 } from "lucide-react"
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -66,6 +66,9 @@ export function HospitalDetailModal({
               <DialogTitle className="text-left text-xl font-bold text-card">
                 {hospital.name}
               </DialogTitle>
+              <DialogDescription className="sr-only">
+                Details and reviews for {hospital.name} in {hospital.city}
+              </DialogDescription>
             </DialogHeader>
           </div>
         </div>
